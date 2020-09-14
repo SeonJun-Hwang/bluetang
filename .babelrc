@@ -1,0 +1,25 @@
+{
+  "presets": ["@babel/preset-env", "@babel/preset-typescript"],
+  "plugins": [
+    ["transform-class-properties"],
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "~src/*": ["./src"],
+          "~controllers/*": ["./src/controllers"],
+          "~utils/*": ["./src/utils"],
+          "~views/*": ["./src/views"],
+          "~components": ["./src/components"],
+          "~style/*": ["./style"]
+        }
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
+}

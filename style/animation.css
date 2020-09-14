@@ -1,0 +1,40 @@
+.will-dissolve {
+  will-change: opacity;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.dissolve {
+  opacity: 0;
+}
+
+.will-move {
+  transition: top 0.8s ease-in-out, bottom 0.8s ease-in-out, left 0.8s ease-in-out, right 0.8s ease-in-out;
+}
+
+.will-right-in{
+  left: 100% !important;
+  right: -100% !important;
+}
+
+.will-left-in{
+  left: -100% !important;
+  right: 100% !important;
+}
+
+.will-top-in{
+  top: -100% !important;
+  bottom: 100% !important;
+}
+
+.will-bottom-in{
+  top: 100% !important;
+  bottom: -100% !important;
+}
+
+.move-in {
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+}
