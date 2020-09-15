@@ -1,20 +1,19 @@
 import TokenBase from './TokenBase';
 import { IGNORE_LIST } from './constants';
-import { TokenOption } from '../@interface';
-import { Content } from '../@types'
+import { Content, TokenOption } from '@types';
 
 class Text extends TokenBase {
-  constructor ( content: Content, option: TokenOption ) {
-    super( content, option );
+  constructor(content: Content, option: TokenOption) {
+    super(content, option);
     this.tag = 'p';
     this.properties = {
       innerHTML: this.content as string,
-      style: this.style ? this.style.getStyle( IGNORE_LIST.ELEMENT, false ) : ''
+      style: this.style ? this.style.getStyle(IGNORE_LIST.ELEMENT, false) : '',
     };
   }
 
-  public getHtml () {
-    return `<${this.tag}${this.style ? this.style.getStyle( IGNORE_LIST.ELEMENT ) : ''}>${this.content}</${this.tag}>`;
+  public getHtml() {
+    return `<${this.tag}${this.style ? this.style.getStyle(IGNORE_LIST.ELEMENT) : ''}>${this.content}</${this.tag}>`;
   }
 }
 

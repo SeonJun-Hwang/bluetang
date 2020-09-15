@@ -3,8 +3,7 @@ import { MAX_INDENT } from "../constants";
 import { imgMap, hrefMap } from "./callbacks";
 import { changeValidPairStrs, changePairStr } from "~utils/strings";
 import lodash from "~utils/lodash";
-import { TokenOption, PairChunk, Chunk } from "../@interface";
-import { Content } from "../@types";
+import { TokenOption, PairChunk, Chunk, Content } from "@types";
 
 class Chunker {
   private texts: Array<string> = [];

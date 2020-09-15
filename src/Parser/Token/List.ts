@@ -1,7 +1,6 @@
-import TokenBase from "./TokenBase";
-import LiToken from "./Li";
-import { TokenOption } from "../@interface";
-import { Content } from "../@types";
+import TokenBase from './TokenBase';
+import LiToken from './Li';
+import { Content, TokenOption } from '@types';
 
 abstract class ListBase extends TokenBase {
   constructor(content: Content, option: TokenOption) {

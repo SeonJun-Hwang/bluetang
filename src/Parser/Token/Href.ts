@@ -1,11 +1,10 @@
 import TokenBase from './TokenBase';
 import { IGNORE_LIST } from './constants';
-import { Content } from '../@types';
-import { TokenOption, PairChunk } from '../@interface';
+import { Content, TokenOption, PairChunk } from '@types';
 
 class Href extends TokenBase {
-  constructor ( content: Content, option: TokenOption ) {
-    super( content, option );
+  constructor(content: Content, option: TokenOption) {
+    super(content, option);
     this.tag = 'a';
     const { link, text } = this.content as PairChunk;
     this.properties = {
@@ -16,9 +15,9 @@ class Href extends TokenBase {
     };
   }
 
-  public getHtml (): string {
+  public getHtml(): string {
     const { link, text } = this.content as PairChunk;
-    return `<${this.tag}${this.style ? this.style!.getStyle( IGNORE_LIST.ELEMENT ) : ''} href="${link}" target="_blank">${text}</${this.tag}>`;
+    return `<${this.tag}${this.style ? this.style!.getStyle(IGNORE_LIST.ELEMENT) : ''} href="${link}" target="_blank">${text}</${this.tag}>`;
   }
 }
 

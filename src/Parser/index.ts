@@ -1,23 +1,23 @@
-import TokenFactory from "./Token/TokenFactory";
-import PageAnimationFactory from "./Animation/PageAnimation/Factory";
-import Page from "./Token/Page";
-import Chunker from "./Chunker";
-import ListBase from "./Token/List";
-import Quote from "./Token/Quote";
-import Style from "./Token/Style";
-import TokenBase from "./Token/TokenBase";
-import Animation from "./Animation";
+import TokenFactory from './Token/TokenFactory';
+import PageAnimationFactory from './Animation/PageAnimation/Factory';
+import Page from './Token/Page';
+import Chunker from './Chunker';
+import ListBase from './Token/List';
+import Quote from './Token/Quote';
+import Style from './Token/Style';
+import TokenBase from './Token/TokenBase';
+import Animation from './Animation';
 
-import { className } from "~utils/strings";
-import { MAX_INDENT } from "./constants";
-import { Chunk } from "./@interface";
+import { className } from '~utils/strings';
+import { MAX_INDENT } from './constants';
+import { Chunk } from '@types';
 
 class Parser {
   private chunker: Chunker = new Chunker();
-  private text: string = "";
+  private text: string = '';
   private tokens: Array<Page> = [];
 
-  constructor(text = "") {
+  constructor(text = '') {
     this.setText(text);
   }
 
@@ -47,7 +47,7 @@ class Parser {
   }
 
   public html(): string {
-    return this.tokens.reduce((prev, curr) => `${prev}${curr.getHtml()}`, "");
+    return this.tokens.reduce((prev, curr) => `${prev}${curr.getHtml()}`, '');
   }
 
   private quoting(tokens: Array<TokenBase>): Array<TokenBase> {
@@ -113,7 +113,7 @@ class Parser {
   }
 
   private text2Token(text: string): Array<TokenBase> {
-    const lines = text.split("\n").filter((v) => v.trim().length);
+    const lines = text.split('\n').filter((v) => v.trim().length);
     this.chunker.updateTexts(lines);
     return this.chunker.getChunks().map((chunk: Chunk) => TokenFactory.createToken(chunk));
   }

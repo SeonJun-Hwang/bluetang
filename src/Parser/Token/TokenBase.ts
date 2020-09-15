@@ -1,11 +1,10 @@
-import Factory from "../Animation/ElementAnimation/Factory";
-import { PAGE, TYPE_TABLE_MAP, IGNORE_LIST_MAP } from "./constants";
-import { c$el } from "~utils/DOM";
-import lodash from "~utils/lodash";
-import { TokenOption, Properties } from "../@interface";
-import { Content } from "../@types";
-import Style from "./Style";
-import Animation from "../Animation";
+import Factory from '../Animation/ElementAnimation/Factory';
+import { PAGE, TYPE_TABLE_MAP, IGNORE_LIST_MAP } from './constants';
+import { c$el } from '~utils/DOM';
+import lodash from '~utils/lodash';
+import { Content, TokenOption, Properties } from '@types';
+import Style from './Style';
+import Animation from '../Animation';
 
 abstract class TokenBase {
   protected text: string;
@@ -16,7 +15,7 @@ abstract class TokenBase {
   protected style: Style | null = null;
   protected childTokens: Array<TokenBase> = [];
 
-  protected tag: string = "";
+  protected tag: string = '';
   protected properties: Properties | null = null;
   protected element: Element | null = null;
   protected html: string | null = null;
@@ -39,19 +38,19 @@ abstract class TokenBase {
   public abstract getHtml(): string;
 
   public getElement(): string | Element {
-    if (!this.display) return "";
+    if (!this.display) return '';
     if (!this.element) this.element = this.createElement();
     return this.element;
   }
 
   protected childHtml() {
-    return this.childTokens.reduce((prev, cur) => `${prev}${cur.getHtml()}`, "");
+    return this.childTokens.reduce((prev, cur) => `${prev}${cur.getHtml()}`, '');
   }
 
   public getAnimation(): Array<Animation> | null {
     if (!this.display) return null;
     const childrenAnimation = this.childTokens.map((child) => child.getAnimation());
-    const myAnimation = this.style ? Factory.createAnimation(this.style.values("animate")!, this.getElement() as Element) : null;
+    const myAnimation = this.style ? Factory.createAnimation(this.style.values('animate')!, this.getElement() as Element) : null;
     const result = [myAnimation, ...childrenAnimation];
     const filtered = lodash.compact(result);
     return filtered.length ? filtered : null;
@@ -94,8 +93,8 @@ abstract class TokenBase {
   }
 
   private updateDisplay() {
-    const x = this.style!.values("x") || 0;
-    const y = this.style!.values("y") || 0;
+    const x = this.style!.values('x') || 0;
+    const y = this.style!.values('y') || 0;
     this.display = x < PAGE.width && y < PAGE.height;
   }
 }
