@@ -1,0 +1,94 @@
+.menu-open {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 5px;
+  width: 6vh;
+  height: 6vh;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.menu-open:hover {
+  background-color: var(--color-primary-light1);
+}
+
+.menu-open > span {
+  padding: 2vh;
+}
+
+.menu {
+  position: fixed;
+  width: 350px;
+  top: 0;
+  bottom: 0;
+  left: -350px;
+  transition: left 0.3s ease-in-out;
+  background-color: white;
+  z-index: 30;
+}
+
+.menu::after {
+  content: '';
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-supporting-light1);
+  transition: left 0.3s ease-in-out;
+}
+
+.menu.open {
+  left: 0;
+  box-shadow: 0px 0px 5px 3px var(--color-supporting-light1);
+}
+
+.menu.open::after {
+  visibility: visible;
+  left: 350px;
+}
+
+.menu-header {
+  font-family: 'SDMiSaeng';
+  font-size: 2rem;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.menu-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.menu-list > li {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 40px;
+  margin: 5px auto;
+  padding: 0 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-sizing: border-box;
+  color: var(--color-font-gray);
+}
+
+.menu-list > li > .ico {
+  padding: 10px;
+  margin-right: 30px;
+}
+
+.menu-list > li:hover {
+  background-color: var(--color-secondary-light2);
+}
+
+.menu-list > li:active {
+  background-color: var(--color-secondary-light1);
+}

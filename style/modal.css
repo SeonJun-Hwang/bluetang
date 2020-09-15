@@ -1,31 +1,81 @@
+.btn {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.btn--secondary {
+  font-family: 'SF Pro Text Semibold', sans-serif;
+  color: #fff;
+  border: 1px solid var(--color-supporting);
+  background-color: var(--color-supporting);
+}
+
+.btn--secondary:hover {
+  border: 1px solid #3b3b3b;
+  background-color: #3b3b3b;
+}
+
+.btn--tertiary {
+  color: #222;
+  border: 1px solid #e1e1e1;
+  background-color: #fff;
+}
+
+.btn--tertiary:hover {
+  background-color: #f6f6f6;
+}
+
+.btn--medium {
+  padding: 8px 12px 9px;
+  min-width: 66px;
+  height: 36px;
+  font-size: 13px;
+  line-height: 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  line-height: 0;
+  background: no-repeat center url('../assets/close.svg');
+}
+
 .modal {
   position: fixed;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   top: 0;
-  bottom:0;
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 30;
-  background-color: rgba(32,32,32,0.5);
+  background-color: rgba(32, 32, 32, 0.5);
   text-align: center;
 }
-  
-.modal-container{
-    display:flex;
-    flex-direction: column;
-    position: relative;
-    width: 480px; /* 4 : 3 */
-    height: 360px;
-    border: none;
-    background-color: white;
-    overflow: hidden;
-    vertical-align: middle;
-    text-align: left;
-    padding: 32px 40px 24px;
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 480px; /* 4 : 3 */
+  height: 360px;
+  border: none;
+  background-color: white;
+  overflow: hidden;
+  vertical-align: middle;
+  text-align: left;
+  padding: 32px 40px 24px;
 }
-  
+
 .modal-header {
   width: 100%;
   height: 14%;
@@ -35,11 +85,11 @@
 }
 
 .modal-header > p {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
-  
-.modal-body{
+
+.modal-body {
   width: 100%;
   height: 74%;
   box-sizing: border-box;
@@ -54,7 +104,7 @@
 .modal-body > textarea:disabled {
   border: none;
 }
-  
+
 .modal-footer {
   width: 100%;
   height: 12%;
@@ -62,9 +112,9 @@
 }
 
 /* Reactive CSS */
-@media all and (max-width:768px){
-  .modal-container{
-    display:flex;
+@media all and (max-width: 768px) {
+  .modal-container {
+    display: flex;
     flex-direction: column;
     position: relative;
     width: 60%; /* 4 : 3 */
