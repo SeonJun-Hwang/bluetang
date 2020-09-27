@@ -1,8 +1,9 @@
 export default {
-  save ( key: string, value: string ) {
-    window.localStorage.setItem( key, value );
+  save(key: string, value: any) {
+    window.localStorage.setItem(key, JSON.stringify(value));
   },
-  load ( key: string ) {
-    return window.localStorage.getItem( key );
+  load(key: string) {
+    const item = window.localStorage.getItem(key);
+    return item ? JSON.parse(item) : {};
   },
 };

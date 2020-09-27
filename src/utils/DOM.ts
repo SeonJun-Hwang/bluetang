@@ -48,6 +48,11 @@ export const removeClass = ($el: Element, className: string) => {
   return $el;
 };
 
+export const toggleClass = ($el: Element, className: string) => {
+  $el.classList.contains(className) ? $el.classList.remove(className) : $el.classList.add(className);
+  return $el;
+};
+
 export const clear = ($el: Element) => {
   $el.removeAttribute('style');
   return $el;
