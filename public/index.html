@@ -10,7 +10,26 @@
 <body>
     <header>
         <button class="menu-open"><span class="ico home-ico">메뉴</span></button>
-        <input class="title" placeholder="title" />
+        <input class="title" placeholder="title" value="title" />
+        <div class="sign-in">
+            <button class="sign-in-btn">로그인</button>
+            <ul class="oauth-list">
+                <li>
+                    <button class="oauth-btn google">
+                        <span class="oauth-name"><span data-color="blue">G</span><span data-color="red">o</span><span
+                                data-color="yellow">o</span><span data-color="blue">g</span><span
+                                data-color="green">l</span><span data-color="red">e</span></span>으로
+                        시작하기
+                    </button>
+                </li>
+                <li>
+                    <button class="oauth-btn github">
+                        <span class="oauth-name">Github</span>으로 시작하기
+                    </button>
+                </li>
+                <li><button class="close">닫기</button></li>
+            </ul>
+        </div>
     </header>
     <div class="content-wrapper">
         <div class="editor-wrapper">
@@ -31,6 +50,7 @@
     <nav class="menu">
         <section class="menu-header">Blue tang</section>
         <ul class="menu-list">
+            <li id="manage-doc"><span class="ico doc-ico">manage-doc</span> 문서 관리하기</li>
             <li id="save-md"><span class="ico save-ico">save-md</span> 마크다운으로 저장</li>
             <li id="save-marp"><span class="ico save-ico">save-marp</span> Marp 포맷으로 저장</li>
             <li id="help"><span class="ico help-ico">help</span>도움말</li>
