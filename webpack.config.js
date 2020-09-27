@@ -49,6 +49,7 @@ module.exports = (env, { mode }) => {
         '.ts', '.js', '.json'
       ],
       alias: {
+        "~": path.resolve(__dirname),
         '~src': path.resolve(__dirname, 'src'),
         '~controllers': path.resolve(__dirname, 'src', 'controllers'),
         '~utils': path.resolve(__dirname, 'src', 'utils'),
