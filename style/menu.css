@@ -1,24 +1,3 @@
-.menu-open {
-  position: absolute;
-  display: flex;
-  top: 0;
-  left: 5px;
-  width: 6vh;
-  height: 6vh;
-  justify-content: center;
-  align-items: center;
-  outline: none;
-  transition: background-color 0.15s ease-in-out;
-}
-
-.menu-open:hover {
-  background-color: var(--color-primary-light1);
-}
-
-.menu-open > span {
-  padding: 2vh;
-}
-
 .menu {
   position: fixed;
   width: 350px;
@@ -91,4 +70,27 @@
 
 .menu-list > li:active {
   background-color: var(--color-secondary-light1);
+}
+
+.profile {
+  width: 100%;
+  padding: 20px 0 20px 20px;
+  box-sizing: border-box;
+}
+
+.profile > .profile-ico {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile > .name {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.profile > .email {
+  font-size: 13px;
 }

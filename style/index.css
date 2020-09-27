@@ -18,6 +18,7 @@
   --color-supporting-light1: rgba(80, 80, 80, 0.5);
   --color-supporting-light2: rgba(80, 80, 80, 0.3);
   --color-warning: #f8626c;
+  --color-warning-hover: #d8424c;
   --color-support2: #a9d0f5;
 
   --color-ui-background: #fbfbfb;
@@ -160,7 +161,7 @@ header {
   padding: 0 5px;
   box-sizing: border-box;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   z-index: 1;
   background-color: var(--color-ui-background);
   border-bottom: solid 1px var(--color-line-03);
@@ -350,8 +351,157 @@ textarea {
   padding: 15px;
 }
 
+header > .menu-open {
+  display: flex;
+  width: 6vh;
+  height: 6vh;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  transition: background-color 0.15s ease-in-out;
+}
+
+header > .menu-open:hover {
+  background-color: var(--color-primary-light1);
+}
+
+header > .menu-open > span {
+  padding: 2vh;
+}
+
+header > .sign-in {
+  position: relative;
+}
+
+header .sign-in-btn {
+  outline: none;
+  border: none;
+  background-color: var(--color-secondary);
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
+header .sign-in-btn:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+header .out {
+  background-color: var(--color-warning) !important;
+}
+
+header .out:hover {
+  background-color: var(--color-warning-hover) !important;
+}
+
+.sign-in > .oauth-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin: 0;
+  margin-top: 10px;
+  padding: 10px 15px;
+  list-style: none;
+  background-color: white;
+  border: solid 1px var(--color-line-02);
+  border-radius: 5px;
+}
+
+.sign-in > .oauth-list.open {
+  display: block;
+}
+
+.oauth-list::after {
+  position: absolute;
+  content: '';
+  top: -10px;
+  right: 10px;
+  width: 30px;
+  height: 10px;
+  background: no-repeat center / cover url('../assets/etc/sign-in-hat.svg');
+  z-index: 5;
+}
+
+.sign-in > .oauth-list > li {
+  padding: 5px 0;
+}
+
+.oauth-btn {
+  width: 220px;
+  padding: 7px 22px;
+  font-size: 15px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.oauth-btn.google {
+  border: solid 1px var(--color-line-03);
+}
+
+.oauth-btn.google:hover {
+  background-color: var(--color-line-03);
+}
+
+.oauth-btn.google > .oauth-name > span[data-color='blue'] {
+  color: #4285f4;
+}
+
+.oauth-btn.google > .oauth-name > span[data-color='red'] {
+  color: #db4437;
+}
+
+.oauth-btn.google > .oauth-name > span[data-color='yellow'] {
+  color: #f4b400;
+}
+
+.oauth-btn.google > .oauth-name > span[data-color='green'] {
+  color: #0f9d58;
+}
+
+.oauth-btn.github {
+  background-color: #24292e;
+  color: white;
+}
+
+.oauth-btn.github:hover {
+  background-color: #393e44;
+}
+
+.oauth-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.oauth-list .close {
+  width: 220px;
+  text-align: right;
+  padding: 0 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--color-font-gray);
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.oauth-list .close:hover {
+  color: var(--color-secondary);
+}
+
 .home-ico {
   background: no-repeat center / cover url('../assets/logo.svg');
+}
+
+.close-ico {
+  background: no-repeat center / cover url('../assets/material/close.svg');
+}
+
+.doc-ico {
+  background: no-repeat center / cover url('../assets/material/document.svg');
 }
 
 .load-ico {
@@ -372,4 +522,16 @@ textarea {
 
 .out-ico {
   background: no-repeat center / cover url('../assets/material/sign-out.svg');
+}
+
+.loading {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  font-family: 'SDMiSaeng';
+  font-size: 4rem;
+  font-weight: 600;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }

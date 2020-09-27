@@ -1,4 +1,4 @@
-@media all and (min-width:769px){
+@media all and (min-width: 769px) {
   .notice {
     position: fixed;
     display: flex;
@@ -6,11 +6,9 @@
     right: 0.5em;
     height: 50px;
     background-color: white;
-    border: solid 1px rgb(224,144,144);
     box-sizing: border-box;
     border-radius: 10px;
-    font-size: 1.1em;
-    color: rgb(72, 72, 72);
+    color: rgb(48, 48, 48);
     z-index: 30;
   }
 
@@ -18,14 +16,15 @@
     background: no-repeat center url('../assets/noti.svg');
     font-size: 0;
     padding: 20px;
+    margin-left: 10px;
   }
 
   .notice-msg {
-    margin: auto 10px auto 8px;
+    margin: auto 20px auto 8px;
   }
 }
 /* Reactive CSS */
-@media all and (max-width:768px){
+@media all and (max-width: 768px) {
   .notice {
     position: fixed;
     display: flex;
@@ -42,11 +41,11 @@
     transform: translateX(-50%);
     z-index: 1234;
   }
-  
+
   .notice-ico {
     display: none;
   }
-  
+
   .notice-msg {
     margin: 1em 2em;
   }

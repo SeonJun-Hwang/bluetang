@@ -91,9 +91,9 @@
 
 .modal-body {
   width: 100%;
-  height: 74%;
-  box-sizing: border-box;
-  padding: 10px 0;
+  min-height: 74%;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .modal-body > textarea {
@@ -109,6 +109,57 @@
   width: 100%;
   height: 12%;
   text-align: center;
+}
+
+.modal-body > .new-doc {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 0;
+  border: dashed 2px var(--color-font-gray);
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-font-gray);
+  background-color: var(--color-ui-gray-background-light);
+}
+
+.modal-body > .new-doc:hover {
+  background-color: var(--color-ui-gray-background);
+}
+
+.modal-body > .doc-list {
+  width: 100%;
+  max-height: 777px;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.doc-list > .doc-item {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  margin: 10px 0;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: var(--color-primary-light3);
+}
+
+.doc-list > .doc-item:hover {
+  background-color: var(--color-primary-light2);
+}
+
+.doc-item > .doc-title {
+  width: 350px;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+.doc-item > .remove-doc {
+  padding: 10px;
 }
 
 /* Reactive CSS */
