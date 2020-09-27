@@ -6,8 +6,10 @@ import '~style/animation.css';
 import '~style/notice.css';
 import '~style/modal.css';
 import Controller from './controllers';
+import { init } from './auth';
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
+  init();
   const controller = new Controller();
   controller.init();
 });

@@ -1,5 +1,6 @@
 export const KEYS = {
-  storage: "bluetang",
+  storage: 'bluetang',
 };
 
-export const DEFAULT_TEXT = "---\n";
+export const DEFAULT_TITLE = 'title';
+export const DEFAULT_TEXT = '---\n';

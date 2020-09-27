@@ -48,6 +48,12 @@ export interface Chunk {
   option: TokenOption;
 }
 
+export interface StoreageValueType {
+  title: string;
+  value: string;
+}
+
 /* type */
 
 export type Content = string | Map<string, string> | PairChunk;
+export type EventType = 'accept' | 'cancel';
