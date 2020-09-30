@@ -49,15 +49,16 @@ module.exports = (env, { mode }) => {
         '.ts', '.js', '.json'
       ],
       alias: {
-        "~": path.resolve(__dirname),
+        '~': path.resolve(__dirname),
         '~src': path.resolve(__dirname, 'src'),
-        '~controllers': path.resolve(__dirname, 'src', 'controllers'),
+        '~model': path.resolve(__dirname, 'src', 'model'),
+        '~view': path.resolve(__dirname, 'src', 'view'),
+        '~presenter': path.resolve(__dirname, 'src', 'presenter'),
+        '~module': path.resolve(__dirname, 'src', 'module'),
         '~utils': path.resolve(__dirname, 'src', 'utils'),
-        '~views': path.resolve(__dirname, 'src', 'views'),
-        '~components': path.resolve(__dirname, 'src', 'components'),
-        '~parser': path.resolve(__dirname, 'src', 'Parser'),
+        '~global': path.resolve(__dirname, 'src', 'global'),
         '~style': path.resolve(__dirname, 'style'),
-        '@types': path.resolve(__dirname, "./src/@types/index.ts")
+        '@auth': path.resolve(__dirname, 'src', 'auth', 'index.ts')
       },
     },
     optimization: {

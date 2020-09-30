@@ -5,11 +5,14 @@ import '~style/fullscreen.css';
 import '~style/animation.css';
 import '~style/notice.css';
 import '~style/modal.css';
-import Controller from './controllers';
-import { init } from './auth';
+import App from '~view/App';
+import * as Auth from '@auth';
+
+window.addEventListener('DOMContentLoaded', () => {
+  Auth.init();
+});
 
 window.addEventListener('load', async () => {
-  init();
-  const controller = new Controller();
-  controller.init();
+  const app = new App();
+  document.body.appendChild(app.create());
 });

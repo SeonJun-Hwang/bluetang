@@ -82,7 +82,8 @@ button {
   padding: 0;
 }
 
-body {
+body,
+#app {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -191,7 +192,7 @@ textarea {
   font-size: 1.3rem;
 }
 
-.content-wrapper {
+.content {
   display: flex;
   width: 100%;
   height: 94vh;
@@ -382,6 +383,7 @@ header .sign-in-btn {
   color: white;
   border-radius: 4px;
   padding: 6px 12px;
+  transition: background-color ease-in-out 0.15s;
 }
 
 header .sign-in-btn:hover {

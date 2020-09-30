@@ -43,13 +43,14 @@
     "paths": {
       "~/*": ["./*"],
       "~src/*": ["./src/*"],
-      "~controllers/*": ["./src/controllers/*"],
-      "~parser/*": ["src/Parser/*"],
+      "~model/*": ["./src/model/*"],
+      "~view/*": ["./src/view/*"],
+      "~presenter/*": ["./src/presenter/*"],
+      "~module/*": ["src/module/*"],
       "~utils/*": ["./src/utils/*"],
-      "~views/*": ["./src/views/*"],
-      "~components/*": ["./src/components/*"],
+      "~global/*": ["./src/global/*"],
       "~style/*": ["./style/*"],
-      "@types": ["./src/@types/index.ts"]
+      "@auth": ["./src/auth/index.ts"]
     } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */

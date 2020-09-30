@@ -1,10 +1,13 @@
-import { Properties } from '@types';
+import { ElementOption } from '~global/types';
+
+export const $c = (tag: string, option?: ElementOption): HTMLElement => {
+  const $el = document.createElement(tag);
+  return Object.assign($el, option);
+};
 
 export const $ = (selector: string, target: Element | Document | DocumentFragment = document) => target.querySelector(selector);
 export const $$ = (selector: string, target: Element | Document | DocumentFragment = document) => target.querySelectorAll(selector);
 export const $$$ = (id: string, target: Document | DocumentFragment = document) => target.getElementById(id);
-
-export const c$el = (tag: string, option?: Properties): HTMLElement => Object.assign(document.createElement(tag), option);
 
 export const zIndex = ($el: Element, idx?: string) => {
   ($el as HTMLElement).style.zIndex = idx || '';
@@ -63,6 +66,11 @@ export const forceRepaint = ($el: Element) => {
   const { border } = style;
   style.border = 'solid 0px transparent';
   style.border = border;
+};
+
+export const triggerInput = ($el: HTMLInputElement | HTMLTextAreaElement, value: string) => {
+  $el.value = value;
+  $el.dispatchEvent(new InputEvent('input'));
 };
 
 // 호환성 개선
