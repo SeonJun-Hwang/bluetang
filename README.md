@@ -14,11 +14,11 @@
 
 ## Description
 
-마크다운으로 개발하는 웹 프레젠터입니다.
+마크다운을 이용해 작성하는 프레젠테이션입니다.
 
 ## Page
 
-[🏠Page]()
+[🏠Page](https://web-bluetang.web.app/)
 
 ## Editor 문법 규칙
 
@@ -32,9 +32,4 @@
 
 ## Reference
 
-- [Goolge Slides](https://www.google.com/slides/about)
-- [Reveal.js](https://revealjs.com)
 - [Marp](https://web.marp.app)
-- [Remark.js](https://remarkjs.com)
-- [Deck.js](http://imakewebthings.com/deck.js)
-- [Impress.js](https://impress.js.org)

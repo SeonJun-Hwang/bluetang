@@ -1,0 +1,135 @@
+/* Full Screen CSS */
+/* Standard */
+.slide-wrapper:fullscreen {
+  width: 1280px;
+  height: 720px;
+  background-color: black;
+}
+
+.slide-wrapper:fullscreen .bt-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  background-color: black;
+  overflow: visible;
+}
+
+.slide-wrapper:fullscreen .bt-slide > svg {
+  background-color: black;
+}
+
+.slide-wrapper:fullscreen foreignObject {
+  background-color: white;
+}
+
+.slide-wrapper:fullscreen > .floating-btn {
+  display: none;
+}
+
+/* Webkit */
+
+.slide-wrapper:-webkit-full-screen {
+  width: 1280px;
+  height: 720px;
+  background-color: black;
+}
+
+.slide-wrapper:-webkit-full-screen .bt-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  background-color: black;
+  overflow: visible;
+}
+
+.slide-wrapper:-webkit-full-screen .bt-slide > svg {
+  background-color: black;
+}
+
+.slide-wrapper:-webkit-full-screen foreignObject {
+  background-color: white;
+}
+
+.slide-wrapper:-webkit-full-screen > .floating-btn {
+  display: none;
+}
+
+/* moz */
+
+.slide-wrapper:-moz-full-screen {
+  width: 1280px;
+  height: 720px;
+  background-color: black;
+}
+
+.slide-wrapper:-moz-full-screen .bt-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  background-color: black;
+  overflow: visible;
+}
+
+.slide-wrapper:-moz-full-screen .bt-slide > svg {
+  background-color: black;
+}
+
+.slide-wrapper:-moz-full-screen foreignObject {
+  background-color: white;
+}
+
+.slide-wrapper:-moz-full-screen > .floating-btn {
+  display: none;
+}
+
+/* ms */
+
+.slide-wrapper:-ms-fullscreen {
+  width: 1280px;
+  height: 720px;
+  background-color: black;
+}
+
+.slide-wrapper:-ms-fullscreen .bt-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  background-color: black;
+  overflow: visible;
+}
+
+.slide-wrapper:-ms-fullscreen .bt-slide > svg {
+  background-color: black;
+}
+
+.slide-wrapper:-ms-fullscreen foreignObject {
+  background-color: white;
+}
+
+.slide-wrapper:-ms-fullscreen > .floating-btn {
+  display: none;
+}
