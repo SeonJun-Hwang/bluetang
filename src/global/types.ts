@@ -50,6 +50,17 @@ export interface StoreageValueType {
   value: string;
 }
 
+export interface firebaseDocInfoType {
+  title: string;
+  text: string;
+  timestamp: firebase.firestore.Timestamp;
+}
+
+export interface firebaseDocType {
+  id: string;
+  data: firebaseDocInfoType;
+}
+
 /* type */
 
 export type Nullable<T> = T | null;

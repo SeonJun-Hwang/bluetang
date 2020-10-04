@@ -1,8 +1,9 @@
 import { auth, firestore } from 'firebase/app';
 import 'firebase/firestore';
 import { v4 as uuid } from 'uuid';
-import { DEFAULT_TEXT_BASE64 } from '~global/constants';
+import { DEFAULT_TEXT, DEFAULT_TEXT_BASE64 } from '~global/constants';
 import { createUser } from '~global/firebase';
+import { firebaseDocInfoType, firebaseDocType } from '~global/types';
 
 export const getUser = () => {
   return auth().currentUser;
@@ -19,29 +20,25 @@ export const createUserTable = async (email: string, title = 'title') => {
   const newUser = await collection.doc('default').set({
     timestamp: new Date(),
     title,
-    data: DEFAULT_TEXT_BASE64,
+    data: DEFAULT_TEXT,
   });
   createUser(email);
   return newUser;
 };
 
-export const getDocs = async (email: string) => {
-  const db = firestore();
-  const collection = db.collection(email);
-  return await collection.get();
-};
-
-export const getDocsInfo = async (email: string) => {
+export const getDocs = async (email: string): Promise<Array<firebaseDocType>> => {
   const db = firestore();
   const collection = db.collection(email);
   const { docs } = await collection.get();
-  return docs.map((doc) => {
-    const { title } = doc.data();
-    return {
-      id: doc.id,
-      title,
-    };
+  const result = docs.map((doc) => {
+    const id: string = doc.id;
+    const title: string = doc.data().title;
+    const text: string = doc.data().data;
+    const timestamp: firebase.firestore.Timestamp = doc.data().timestamp;
+    const data = { title, text, timestamp } as firebaseDocInfoType;
+    return { id, data };
   });
+  return result;
 };
 
 export const readData = async (email: string, id: string) => {
@@ -85,11 +82,4 @@ export const removeDoc = async (email: string, id: string) => {
 export const updateLatestDocument = async (email: string, latestDoc: string) => {
   const db = firestore();
   return await db.collection('user').doc(email).update({ latestDoc });
-};
-
-export const getLatestDocument = async (email: string): Promise<string> => {
-  const db = firestore();
-  const document = await db.collection('user').doc(email).get();
-  const data = document.data();
-  return data!['latestDoc'];
 };
