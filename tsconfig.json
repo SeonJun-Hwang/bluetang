@@ -46,6 +46,7 @@
       "~model/*": ["./src/model/*"],
       "~view/*": ["./src/view/*"],
       "~presenter/*": ["./src/presenter/*"],
+      "~component/*": ["./src/component/*"],
       "~module/*": ["src/module/*"],
       "~utils/*": ["./src/utils/*"],
       "~global/*": ["./src/global/*"],

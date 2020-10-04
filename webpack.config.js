@@ -54,6 +54,7 @@ module.exports = (env, { mode }) => {
         '~model': path.resolve(__dirname, 'src', 'model'),
         '~view': path.resolve(__dirname, 'src', 'view'),
         '~presenter': path.resolve(__dirname, 'src', 'presenter'),
+        '~component': path.resolve(__dirname, 'src', 'component'),
         '~module': path.resolve(__dirname, 'src', 'module'),
         '~utils': path.resolve(__dirname, 'src', 'utils'),
         '~global': path.resolve(__dirname, 'src', 'global'),
