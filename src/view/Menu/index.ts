@@ -3,12 +3,15 @@ import Presenter from '~presenter/Menu';
 import { $, $c, removeClass } from '~utils/DOM';
 import { Nullable } from '~global/types';
 import fb from 'firebase/app';
+import DocumentModal from '~/src/component/Modal/DocumentModal';
 
 class Menu extends BaseView implements Presenter.View {
   private contact: Presenter.Contact;
+  private docModal: DocumentModal;
   constructor() {
     super();
     this.contact = new Presenter.Contact(this);
+    this.docModal = new DocumentModal();
   }
 
   protected render(): HTMLElement {
@@ -17,9 +20,10 @@ class Menu extends BaseView implements Presenter.View {
       innerHTML: `<div class="menu-container">
         <section class="menu-header">Blue tang</section>
         <ul class="menu-list">
-            <li id="save-md"><span class="ico save-ico">save-md</span> 마크다운으로 저장</li>
-            <li id="save-marp"><span class="ico save-ico">save-marp</span> Marp 포맷으로 저장</li>
-            <li id="help"><span class="ico help-ico">help</span>도움말</li>
+          <li id="manage-doc"><span class="ico doc-ico">document</span>문서관리</li>
+          <li id="save-md"><span class="ico save-ico">save-md</span>마크다운으로 저장</li>
+          <li id="save-marp"><span class="ico save-ico">save-marp</span>Marp 포맷으로 저장</li>
+          <li id="help"><span class="ico help-ico">help</span>도움말</li>
         </ul>
       </div>`,
     });
@@ -34,6 +38,10 @@ class Menu extends BaseView implements Presenter.View {
     fb.auth().onAuthStateChanged(this.updateUserState.bind(this));
   }
 
+  private hide() {
+    removeClass(this.$el as HTMLElement, 'open');
+  }
+
   private dispose({ target }: MouseEvent) {
     if (target !== this.$el) return;
     removeClass(this.$el as HTMLElement, 'open');
@@ -41,9 +49,11 @@ class Menu extends BaseView implements Presenter.View {
 
   private delegateMenu({ target }: Event) {
     const id = (target as HTMLElement).id;
-    if (id === 'save-md') this.contact.saveMarkdown();
+    if (id === 'manage-doc') this.docModal.show();
+    else if (id === 'save-md') this.contact.saveMarkdown();
     else if (id === 'save-marp') this.contact.saveMarp();
     else if (id === 'help') this.contact.openHelpPage();
+    this.hide();
   }
 
   private updateUserState(user: Nullable<firebase.User>) {
