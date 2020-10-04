@@ -8,6 +8,23 @@ export const $c = (tag: string, option?: ElementOption): HTMLElement => {
 export const $ = (selector: string, target: Element | Document | DocumentFragment = document) => target.querySelector(selector);
 export const $$ = (selector: string, target: Element | Document | DocumentFragment = document) => target.querySelectorAll(selector);
 export const $$$ = (id: string, target: Document | DocumentFragment = document) => target.getElementById(id);
+export const $ancestorClass = (className: string, base: Element) => {
+  let target: Element | null = base;
+  while (target) {
+    if (target.classList.contains(className)) return target;
+    target = target!.parentElement;
+  }
+  return target;
+};
+
+export const $ancestorTag = (tag: string, base: Element) => {
+  let target: Element | null = base;
+  while (target) {
+    if (target.tagName.toLocaleLowerCase() === tag.toLocaleLowerCase()) return target;
+    target = target!.parentElement;
+  }
+  return target;
+};
 
 export const zIndex = ($el: Element, idx?: string) => {
   ($el as HTMLElement).style.zIndex = idx || '';
