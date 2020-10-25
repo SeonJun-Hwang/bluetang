@@ -44,9 +44,7 @@ class DocumentModal extends BaseModal {
   }
 
   private createNewDoc() {
-    newDoc(getEmail()!, new Date().toLocaleString()).then(() => {
-      this.loadDocuments();
-    });
+    newDoc(getEmail()!, new Date().toLocaleString()).then(() => this.loadDocuments());
   }
 
   private async switchDocument(id: string) {
@@ -68,7 +66,7 @@ class DocumentModal extends BaseModal {
       alert('기본 페이지는 삭제할 수 없습니다.');
       return;
     }
-    removeDoc(getEmail()!, id);
+    removeDoc(getEmail()!, id).then(() => this.loadDocuments());
   }
 
   private async loadDocuments() {
@@ -87,7 +85,7 @@ class DocumentModal extends BaseModal {
     <span class="doc-timestamp">${timestamp.toDate().toLocaleString()}</span>
     <span class="doc-id">${id}</span>
     </div>
-    ${id !== 'default' ? `<span class="ico close-ico remove-doc"></span>` : ''}
+    ${id !== 'default' ? `<span class="ico close-ico remove-doc">삭제</span>` : ''}
     </li>`;
   }
 }
