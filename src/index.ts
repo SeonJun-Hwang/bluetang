@@ -5,6 +5,7 @@ import '~style/fullscreen.css';
 import '~style/animation.css';
 import '~style/notice.css';
 import '~style/modal.css';
+import '~style/alert.css';
 import App from '~view/App';
 import * as Auth from '@auth';
 
