@@ -1,7 +1,7 @@
 import { auth, firestore } from 'firebase/app';
 import 'firebase/firestore';
 import { v4 as uuid } from 'uuid';
-import { DEFAULT_TEXT, DEFAULT_TEXT_BASE64 } from '~global/constants';
+import { DEFAULT_TEXT } from '~global/constants';
 import { createUser } from '~global/firebase';
 import { firebaseDocInfoType, firebaseDocType } from '~global/types';
 
@@ -69,7 +69,7 @@ export const newDoc = async (email: string, title = 'title') => {
   await db.collection(email).doc(id).set({
     timestamp: new Date(),
     title,
-    data: DEFAULT_TEXT_BASE64,
+    data: DEFAULT_TEXT,
   });
   return { id, title };
 };

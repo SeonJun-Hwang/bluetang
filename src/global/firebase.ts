@@ -1,13 +1,13 @@
 import { database } from 'firebase/app';
 import 'firebase/database';
-import { base64ToStr, strToBase64 } from '~utils/strings';
+import { strToBase64 } from '~utils/strings';
 
-export const createUser = (email: string) => {
+export const createUser = async (email: string) => {
   const db = database();
   db.ref(`/user/${strToBase64(email)}`).set({ latest: 'default' });
 };
 
-export const updateLatest = (email: string, latest: string) => {
+export const updateLatest = async (email: string, latest: string) => {
   const db = database();
   db.ref(`/user/${strToBase64(email)}`).update({ latest });
 };
