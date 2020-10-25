@@ -83,8 +83,15 @@
 }
 
 .modal .doc-list {
-  height: 100%;
+  height: 95%;
   overflow: auto;
+  margin: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.modal .doc-list::-webkit-scrollbar {
+  display: none;
 }
 
 .modal .doc-item {
@@ -103,6 +110,13 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: bold;
+}
+
+.modal .doc-item .remove-doc {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  padding: 0.5rem;
 }
 
 .modal .doc-info {
