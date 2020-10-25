@@ -1,5 +1,6 @@
 import BaseView from '~view/BaseView';
 import Presenter from '~presenter/OAuthButton/Google';
+import Notice from '~component/Notice';
 import { $c } from '~utils/DOM';
 import { auth } from 'firebase/app';
 
@@ -26,7 +27,9 @@ class GoogleOAuth extends BaseView implements Presenter.View {
   }
 
   public updateCredential(credential: auth.UserCredential): void {
-    console.log(credential ? '로그인 되었습니다.' : '로그인에 실패했습니다.');
+    const type = credential ? 'success' : 'error';
+    const message = credential ? '로그인 되었습니다.' : '로그인에 실패하였습니다.';
+    new Notice(type, message).show();
   }
 }
 
