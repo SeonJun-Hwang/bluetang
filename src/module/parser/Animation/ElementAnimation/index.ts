@@ -4,18 +4,18 @@ import { show } from '~utils/DOM';
 abstract class ElementAnimation implements Animation {
   protected $el: Element;
 
-  constructor ( $el: Element ) {
+  constructor($el: Element) {
     this.$el = $el;
   }
 
-  public abstract animate (): void;
+  public abstract animate(): void;
 
-  public rollback () {
-    show( this.$el );
+  public rollback() {
+    show(this.$el);
   }
 
-  public recover () {
-    show( this.$el );
+  public recover() {
+    show(this.$el);
   }
 }
 

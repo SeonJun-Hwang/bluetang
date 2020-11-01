@@ -3,7 +3,7 @@ export enum SLIDE {
   right = '0 0 0 100%',
   top = '-100% 0 0 0',
   bottom = '100% 0 0 0',
-};
+}
 
 export const PIVOT = {
   SWING_DEGREE: 90,

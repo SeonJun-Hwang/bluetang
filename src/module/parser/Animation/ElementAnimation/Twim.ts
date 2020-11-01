@@ -2,36 +2,36 @@ import AbsoluteAnimation from './AbsoluteAnimation';
 import { visible, invisible } from '~utils/DOM';
 
 class Twim extends AbsoluteAnimation {
-  constructor ( $el: Element ) {
-    super( $el );
+  constructor($el: Element) {
+    super($el);
     this.setUp();
   }
 
-  public animate () {
-    visible( this.$fakeEl );
+  public animate() {
+    visible(this.$fakeEl);
     const keyframes: PropertyIndexedKeyframes = {
-      transform: [ 'scale(0.2)', 'scale(1)' ]
-    }
-    this.$fakeEl.animate( keyframes, { duration: 400, easing: 'ease-in-out' } ).addEventListener( 'finish', this.callback.bind( this ) );
+      transform: ['scale(0.2)', 'scale(1)'],
+    };
+    this.$fakeEl.animate(keyframes, { duration: 400, easing: 'ease-in-out' }).addEventListener('finish', this.callback.bind(this));
   }
 
-  public rollback () {
-    invisible( this.$el );
-    invisible( this.$fakeEl );
+  public rollback() {
+    invisible(this.$el);
+    invisible(this.$fakeEl);
   }
 
-  public recover () {
-    visible( this.$el );
-    this.$el.parentNode!.removeChild( this.$fakeEl );
+  public recover() {
+    visible(this.$el);
+    this.$el.parentNode!.removeChild(this.$fakeEl);
   }
 
-  private setUp () {
-    invisible( this.$el );
-    this.$el.parentNode!.append( this.$fakeEl );
+  private setUp() {
+    invisible(this.$el);
+    this.$el.parentNode!.append(this.$fakeEl);
   }
 
-  protected makeFakeNode () {
-    const $fakeEl = this.$el.cloneNode( true ) as HTMLElement;
+  protected makeFakeNode() {
+    const $fakeEl = this.$el.cloneNode(true) as HTMLElement;
     const { style } = $fakeEl;
     style.position = 'absolute';
     style.top = `${this.y}px`;
@@ -41,9 +41,9 @@ class Twim extends AbsoluteAnimation {
     return $fakeEl;
   }
 
-  private callback () {
-    visible( this.$el );
-    invisible( this.$fakeEl );
+  private callback() {
+    visible(this.$el);
+    invisible(this.$fakeEl);
   }
 }
 

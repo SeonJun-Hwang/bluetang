@@ -36,5 +36,13 @@ export const PATTERNS = {
 export const PAIRS = {
   targets: ['`', '***', '___', '**', '__', '*', '_'],
   pattern: [/`(.*?)`/, /\*\*\*(.*?)\*\*\*/, /___(.*?)___/, /\*\*(.*?)\*\*/, /__(.*?)__/, /\*(.*?)\*/, /_(.*?)_/],
-  pairs: [['<code>', '</code>'], ['<strong><em>', '</em></strong>'], ['<strong><em>', '</em></strong>'], ['<strong>', '</strong>'], ['<strong>', '</strong>'], ['<em>', '</em>'], ['<em>', '</em>']],
+  pairs: [
+    ['<code>', '</code>'],
+    ['<strong><em>', '</em></strong>'],
+    ['<strong><em>', '</em></strong>'],
+    ['<strong>', '</strong>'],
+    ['<strong>', '</strong>'],
+    ['<em>', '</em>'],
+    ['<em>', '</em>'],
+  ],
 };

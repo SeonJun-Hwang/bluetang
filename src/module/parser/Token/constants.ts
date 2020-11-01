@@ -9,38 +9,49 @@ export enum STYLE_LIST {
   z = 'z-index',
 }
 
-export const STYLE_LIST_MAP = ( type: string ): string => {
-  switch ( type ) {
-    case 'bgColor': return 'background-color';
-    case 'bgImage': return 'background';
-    case 'color': return 'color';
-    case 'w': return 'width';
-    case 'h': return 'height';
-    case 'x': return 'left';
-    case 'y': return 'top';
-    case 'z': return 'z-index';
-    default: return '';
+export const STYLE_LIST_MAP = (type: string): string => {
+  switch (type) {
+    case 'bgColor':
+      return 'background-color';
+    case 'bgImage':
+      return 'background';
+    case 'color':
+      return 'color';
+    case 'w':
+      return 'width';
+    case 'h':
+      return 'height';
+    case 'x':
+      return 'left';
+    case 'y':
+      return 'top';
+    case 'z':
+      return 'z-index';
+    default:
+      return '';
   }
-}
+};
 
 export enum PAGE {
   width = 1440,
   height = 810,
-};
+}
 
 export const IGNORE_LIST = {
-  PAGE: [ 'x', 'y', 'z', 'w', 'h' ],
+  PAGE: ['x', 'y', 'z', 'w', 'h'],
   IMAGE: [] as Array<string>,
-  ELEMENT: [ 'w', 'h' ],
+  ELEMENT: ['w', 'h'],
 };
 
-export const IGNORE_LIST_MAP = ( type: string ): Array<string> => {
-  switch ( type ) {
-    case 'PAGE': return [ 'x', 'y', 'z', 'w', 'h' ];
-    case 'IMAGE': return [] as Array<string>;
+export const IGNORE_LIST_MAP = (type: string): Array<string> => {
+  switch (type) {
+    case 'PAGE':
+      return ['x', 'y', 'z', 'w', 'h'];
+    case 'IMAGE':
+      return [] as Array<string>;
   }
-  return [ 'w', 'h' ];
-}
+  return ['w', 'h'];
+};
 
 export const TYPE_TABLE = {
   h1: 'ELEMENT',
@@ -59,10 +70,12 @@ export const TYPE_TABLE = {
   p: 'ELEMENT',
 };
 
-export const TYPE_TABLE_MAP = ( type: string ): string => {
-  switch ( type ) {
-    case 'img': return 'IMAGE';
-    case 'section': return 'PAGE';
+export const TYPE_TABLE_MAP = (type: string): string => {
+  switch (type) {
+    case 'img':
+      return 'IMAGE';
+    case 'section':
+      return 'PAGE';
   }
   return 'ELEMENT';
-}
+};
