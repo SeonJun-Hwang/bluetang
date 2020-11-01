@@ -1,13 +1,10 @@
 import BaseView from '~view/BaseView';
-import Presenter from '~presenter/Presenter';
 import { KEY_STR } from '~global/constants';
 import { $, $$, $c, forceRepaint, isFullScreen, toggleFullScreen, fullScreenChangeEventName, zIndex, show, hide, clear } from '~utils/DOM';
 
-class PresenterView extends BaseView implements Presenter.View {
-  private contact: Presenter.Contact;
+class Slides extends BaseView {
   constructor() {
     super();
-    this.contact = new Presenter.Contact(this);
   }
 
   protected render(): HTMLElement {
@@ -31,11 +28,8 @@ class PresenterView extends BaseView implements Presenter.View {
   }
 
   private fullScreenChange() {
-    if (isFullScreen()) this.contact.start();
-    else {
-      this.finishPresentaionView();
-      this.contact.finish();
-    }
+    if (isFullScreen()) return;
+    this.finishPresentaionView();
   }
 
   private fullscreenShortcut(e: KeyboardEvent) {
@@ -61,4 +55,4 @@ class PresenterView extends BaseView implements Presenter.View {
   }
 }
 
-export default PresenterView;
+export default Slides;
