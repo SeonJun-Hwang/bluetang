@@ -17,20 +17,26 @@ namespace ContentPresenter {
 
     public start() {
       this.model.startPresentation();
+      this.notifyAnimateChange();
     }
 
     public finish() {
       this.model.finishPresentation();
+      this.notifyAnimateChange();
     }
 
     public moveNext() {
-      const index = this.model.nextAnimate();
-      const total = this.model.totalAnimate();
-      this.view.updateButton(index, total);
+      this.model.nextAnimate();
+      this.notifyAnimateChange();
     }
 
     public movePrev() {
-      const index = this.model.prevAnimate();
+      this.model.prevAnimate();
+      this.notifyAnimateChange();
+    }
+
+    private notifyAnimateChange() {
+      const index = this.model.nowAnimate();
       const total = this.model.totalAnimate();
       this.view.updateButton(index, total);
     }
@@ -45,8 +51,9 @@ namespace ContentPresenter {
     paserMarkdown(markdown: string): Array<string | Element>;
     startPresentation(): void;
     finishPresentation(): void;
-    nextAnimate(): number;
     prevAnimate(): number;
+    nowAnimate(): number;
+    nextAnimate(): number;
     totalAnimate(): number;
   }
 }

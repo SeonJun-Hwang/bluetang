@@ -14,15 +14,19 @@ class ContentModel implements Presenter.Model {
     return pages;
   }
 
-  public nextAnimate(): number {
-    if (this.nowIndex === this.animations.length) return this.nowIndex;
-    this.animations[this.nowIndex++].animate();
+  public prevAnimate(): number {
+    if (!this.nowIndex) return this.nowIndex;
+    this.animations[--this.nowIndex].rollback();
     return this.nowIndex;
   }
 
-  public prevAnimate(): number {
-    if (!this.nowIndex) return this.nowIndex;
-    this.animations[--this.nowIndex].animate();
+  public nowAnimate(): number {
+    return this.nowIndex;
+  }
+
+  public nextAnimate(): number {
+    if (this.nowIndex === this.animations.length) return this.nowIndex;
+    this.animations[this.nowIndex++].animate();
     return this.nowIndex;
   }
 

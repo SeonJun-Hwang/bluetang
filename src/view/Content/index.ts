@@ -1,6 +1,6 @@
 import BaseView from '~view/BaseView';
 import Editor from '~view/Editor';
-import Presenter from '~view/Presenter';
+import Presenter from '~view/Slides';
 import ContentPresenter from '~presenter/Content';
 import { $c, $, isFullScreen, fullScreenChangeEventName, show, hide } from '~utils/DOM';
 import { DEBOUNCE_INTERVAL, KEY_STR } from '~global/constants';
@@ -21,6 +21,13 @@ class Content extends BaseView implements ContentPresenter.View {
     $slides.append(...slides);
   }
 
+  public updateButton(nowIndex: number, totalIndex: number): void {
+    const $prev = $('.prev', this.$el!);
+    const $next = $('.next', this.$el!);
+    nowIndex ? show($prev as HTMLElement) : hide($prev as HTMLElement);
+    nowIndex === totalIndex ? hide($next as HTMLElement) : show($next as HTMLElement);
+  }
+
   protected render(): HTMLElement {
     const $content = $c('div', { className: 'content' });
     $content.append(this.$editor.create(), this.$presenter.create());
@@ -34,7 +41,7 @@ class Content extends BaseView implements ContentPresenter.View {
     const $next = $('.next', $el);
 
     document.addEventListener('keydown', this.shortcutEvent.bind(this));
-    $slideWrapper?.addEventListener(fullScreenChangeEventName(), () => this.contact.start());
+    $slideWrapper?.addEventListener(fullScreenChangeEventName(), this.fullScreenChangeEvent.bind(this));
     $editor?.addEventListener('input', lodash.debounce(this.editorInputEvent.bind(this), DEBOUNCE_INTERVAL));
     $prev?.addEventListener('click', () => this.contact.movePrev());
     $next?.addEventListener('click', () => this.contact.moveNext());
@@ -52,11 +59,8 @@ class Content extends BaseView implements ContentPresenter.View {
     else if (key === KEY_STR.RIGHT) this.contact.moveNext();
   }
 
-  public updateButton(nowIndex: number, totalIndex: number): void {
-    const $prev = $('.prev', this.$el!);
-    const $next = $('.next', this.$el!);
-    nowIndex ? show($prev as HTMLElement) : hide($prev as HTMLElement);
-    nowIndex + 1 === totalIndex ? hide($next as HTMLElement) : show($prev as HTMLElement);
+  private fullScreenChangeEvent() {
+    isFullScreen() ? this.contact.start() : this.contact.finish();
   }
 }
 
